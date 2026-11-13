@@ -1,0 +1,25 @@
+Window.SetBackgroundTopColor(0.11, 0.04, 0.14);
+Window.SetBackgroundBottomColor(0.17, 0.06, 0.20);
+
+logo.image = Image("logo.png");
+logo.sprite = Sprite(logo.image);
+logo.x = Window.GetWidth() / 2 - logo.image.GetWidth() / 2;
+logo.y = Window.GetHeight() / 2 - logo.image.GetHeight() / 2 - 30;
+logo.sprite.SetPosition(logo.x, logo.y, 10);
+
+track.image = Image("track.png");
+track.sprite = Sprite(track.image);
+track.x = Window.GetWidth() / 2 - track.image.GetWidth() / 2;
+track.y = logo.y + logo.image.GetHeight() + 50;
+track.sprite.SetPosition(track.x, track.y, 10);
+
+fill.image = Image("fill.png");
+fill.sprite = Sprite();
+fill.sprite.SetPosition(track.x, track.y, 11);
+
+fun progress_callback(duration, progress) {
+  w = Math.Int(fill.image.GetWidth() * progress);
+  if (w < 1) w = 1;
+  fill.sprite.SetImage(fill.image.Scale(w, fill.image.GetHeight()));
+}
+Plymouth.SetBootProgressFunction(progress_callback);

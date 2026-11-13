@@ -1,0 +1,17 @@
+#!/bin/sh
+# Startbildschirm (Plymouth) und GRUB-Menü im FluidOS-Stil
+plymouth-set-default-theme fluidos 2>/dev/null
+
+if [ -f /etc/default/grub ]; then
+  sed -i '/^GRUB_CMDLINE_LINUX_DEFAULT=/d;/^GRUB_BACKGROUND=/d;/^GRUB_COLOR_NORMAL=/d;/^GRUB_COLOR_HIGHLIGHT=/d;/^GRUB_GFXMODE=/d' /etc/default/grub
+fi
+cat >> /etc/default/grub <<'EOT'
+GRUB_CMDLINE_LINUX_DEFAULT="quiet splash"
+GRUB_BACKGROUND="/usr/share/backgrounds/fluidos/wallpaper.png"
+GRUB_COLOR_NORMAL="white/black"
+GRUB_COLOR_HIGHLIGHT="white/magenta"
+GRUB_GFXMODE=auto
+EOT
+
+update-initramfs -u -k all 2>/dev/null
+exit 0

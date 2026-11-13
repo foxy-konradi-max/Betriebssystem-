@@ -1,0 +1,11 @@
+#!/bin/sh
+# Startet das Dock im macOS-Stil: unten, mit Zoom, feste Reihenfolge
+S="net.launchpad.plank.dock.settings:/net/launchpad/plank/docks/dock1/"
+gsettings set "$S" dock-items "['files.dockitem','chrome.dockitem','terminal.dockitem','software.dockitem','settings.dockitem']" 2>/dev/null
+gsettings set "$S" position 'bottom' 2>/dev/null
+gsettings set "$S" theme 'Transparent' 2>/dev/null
+gsettings set "$S" icon-size 52 2>/dev/null
+gsettings set "$S" zoom-enabled true 2>/dev/null
+gsettings set "$S" zoom-percent 160 2>/dev/null
+gsettings set "$S" hide-mode 'window-dodge' 2>/dev/null
+exec plank

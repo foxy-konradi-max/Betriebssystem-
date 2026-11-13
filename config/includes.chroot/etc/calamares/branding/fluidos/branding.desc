@@ -1,0 +1,28 @@
+---
+componentName: fluidos
+welcomeStyleCalamares: true
+welcomeExpandingLogo: true
+windowExpanding: normal
+windowSize: 820px,540px
+windowPlacement: center
+strings:
+    productName: FluidOS
+    shortProductName: FluidOS
+    version: "1.0"
+    shortVersion: "1.0"
+    versionedName: "FluidOS 1.0"
+    shortVersionedName: "FluidOS 1.0"
+    bootloaderEntryName: FluidOS
+    productUrl: https://github.com
+    supportUrl: https://github.com
+    releaseNotesUrl: https://github.com
+images:
+    productLogo: "logo.png"
+    productIcon: "logo.png"
+    productWelcome: "welcome.png"
+slideshow: "show.qml"
+style:
+    sidebarBackground: "#2c0f2e"
+    sidebarText: "#FFFFFF"
+    sidebarTextSelect: "#e95420"
+    sidebarTextHighlight: "#5b2a5c"

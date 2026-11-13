@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Name=FluidOS installieren
+Comment=Installiert FluidOS auf diesem Computer
+Exec=sudo -E calamares
+Icon=calamares
+Terminal=false
+Categories=System;

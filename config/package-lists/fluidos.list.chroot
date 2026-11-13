@@ -1,0 +1,107 @@
+# Grundsystem für die grafische Oberfläche
+xorg
+dbus-x11
+xdg-utils
+xdg-user-dirs
+policykit-1
+policykit-1-gnome
+udisks2
+gvfs
+gvfs-backends
+
+# Desktop (leicht und flüssig)
+xfce4
+xfce4-goodies
+xfce4-whiskermenu-plugin
+xfce4-appfinder
+lightdm
+lightdm-gtk-greeter
+plank
+picom
+network-manager
+network-manager-gnome
+pipewire-audio
+pipewire-pulse
+wireplumber
+pavucontrol
+thunar
+thunar-volman
+file-roller
+xfce4-terminal
+mousepad
+ristretto
+fonts-inter
+fonts-noto
+fonts-noto-color-emoji
+
+# Design
+arc-theme
+papirus-icon-theme
+breeze-cursor-theme
+gtk2-engines-murrine
+sassc
+libglib2.0-dev-bin
+
+# Sprache und Tastatur (Deutsch)
+locales
+console-setup
+keyboard-configuration
+firefox-esr-l10n-de
+hunspell-de-de
+
+# Laptop / ThinkPad
+firmware-linux
+firmware-iwlwifi
+firmware-misc-nonfree
+firmware-realtek
+firmware-atheros
+intel-microcode
+intel-media-va-driver
+mesa-utils
+tlp
+tlp-rdw
+acpi
+brightnessctl
+libinput-tools
+xserver-xorg-input-libinput
+zram-tools
+
+# Installer (Calamares) und Bootloader
+calamares
+calamares-settings-debian
+qml-module-qtquick2
+grub-common
+grub2-common
+grub-pc-bin
+grub-efi-amd64-bin
+grub-efi-amd64-signed
+shim-signed
+efibootmgr
+os-prober
+cryptsetup
+lvm2
+dosfstools
+ntfs-3g
+parted
+rsync
+
+# App Store (wie Ubuntu Software)
+gnome-software
+gnome-software-plugin-flatpak
+flatpak
+packagekit
+appstream
+
+# Werkzeuge
+gdebi
+curl
+wget
+git
+ca-certificates
+gnupg
+firefox-esr
+sudo
+
+# Startbildschirm
+plymouth
+plymouth-themes

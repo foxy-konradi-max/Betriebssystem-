@@ -1,0 +1,16 @@
+#!/bin/sh
+chmod +x /usr/local/bin/fluidos-dock 2>/dev/null
+chmod +x /etc/skel/Desktop/*.desktop 2>/dev/null
+
+# Installer-Design aktivieren
+mkdir -p /usr/share/calamares/branding
+cp -r /etc/calamares/branding/fluidos /usr/share/calamares/branding/ 2>/dev/null
+if [ -f /etc/calamares/settings.conf ]; then
+  sed -i 's/^branding:.*/branding: fluidos/' /etc/calamares/settings.conf
+fi
+
+# App-Store-Katalog laden
+flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
+flatpak update --appstream
+appstreamcli refresh-cache --force
+exit 0

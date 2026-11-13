@@ -1,0 +1,31 @@
+#!/bin/sh
+# macOS-ähnliches Theme (WhiteSur): Fenster, Symbole im Mac-Stil, Mauszeiger
+# Bricht den Build ab, wenn das Theme nicht installiert werden kann.
+set -e
+cd /tmp
+git clone --depth 1 https://github.com/vinceliuice/WhiteSur-gtk-theme.git
+git clone --depth 1 https://github.com/vinceliuice/WhiteSur-icon-theme.git
+git clone --depth 1 https://github.com/vinceliuice/WhiteSur-cursors.git
+
+(cd WhiteSur-gtk-theme && ./install.sh -d /usr/share/themes -c Light -t default)
+(cd WhiteSur-icon-theme && ./install.sh -d /usr/share/icons)
+(cd WhiteSur-cursors && ./install.sh)
+rm -rf /tmp/WhiteSur-*
+
+# Prüfen, dass alles wirklich da ist
+for d in /usr/share/themes/WhiteSur-Light /usr/share/icons/WhiteSur /usr/share/icons/WhiteSur-cursors; do
+  [ -d "$d" ] || { echo "FEHLER: $d fehlt" >&2; exit 1; }
+done
+
+gtk-update-icon-cache -f /usr/share/icons/WhiteSur 2>/dev/null || true
+
+# Systemoptimierungen für flüssigen Betrieb
+cat > /etc/sysctl.d/99-fluidos.conf <<'EOT'
+vm.swappiness=10
+vm.vfs_cache_pressure=50
+EOT
+
+# os-release ist ein Symlink: Ziel ändern statt den Link zu ersetzen
+sed -i 's/^PRETTY_NAME=.*/PRETTY_NAME="FluidOS 1.0"/' "$(readlink -f /etc/os-release)" || true
+systemctl enable tlp || true
+exit 0
